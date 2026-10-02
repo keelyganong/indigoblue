@@ -15,7 +15,6 @@
     if (reduce) { window.scrollTo(0, endY()); return; }
     gliding = true;
     var first = !seen();
-    root.classList.remove('snap');
     if (first && stamp) { stamp.style.transition = 'opacity 550ms ease'; stamp.style.opacity = '0'; }
     var start = window.scrollY, dist = endY() - start, dur = first ? 1300 : 750;
     var t0 = performance.now() + (first ? 1050 : 0);
@@ -24,7 +23,7 @@
       var t = Math.max(0, Math.min(1, (now - t0) / dur));
       window.scrollTo(0, start + dist * ease(t));
       if (t < 1) { requestAnimationFrame(step); return; }
-      root.classList.add('snap');
+      window.scrollTo(0, endY());
       if (stamp) { stamp.style.transition = 'none'; stamp.style.opacity = ''; }
       if (first) { try { localStorage.setItem('ib-intro-seen', '1'); } catch (e) {} }
       gliding = false;
