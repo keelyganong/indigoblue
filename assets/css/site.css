@@ -9,8 +9,7 @@ a{color:#16204A;text-decoration:none}a:hover{color:#3A57A8}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* home */
-html.snap{scroll-snap-type:y mandatory}
-.home-hero{scroll-snap-align:start;min-height:100vh;display:grid;grid-template-rows:auto 1fr auto}
+.home-hero{min-height:100vh;min-height:100svh;display:grid;grid-template-rows:auto 1fr auto}
 .home-main{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(20px,3vw,40px);padding:clamp(24px,4vw,56px) 0}
 .stage{display:grid;place-items:center;width:100%;max-width:1100px}
 .stage>*{grid-area:1/1}
@@ -24,10 +23,9 @@ html.snap{scroll-snap-type:y mandatory}
 .home-foot{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;font-size:16px;text-transform:uppercase;letter-spacing:.02em}
 .home-foot p{margin:0}
 .home-foot a{display:inline-flex;align-items:center;min-height:44px;border-bottom:1.5px solid currentColor}
-#archive{scroll-snap-align:start}
 
 /* archive field */
-.arch{height:100vh;min-height:640px;background:#fff;display:flex;flex-direction:column;gap:clamp(16px,2vw,28px);padding:clamp(20px,3vw,44px) 0 0}
+.arch{height:100vh;height:100svh;min-height:560px;background:#fff;display:flex;flex-direction:column;gap:clamp(16px,2vw,28px);padding:clamp(20px,3vw,44px) 0 0}
 .arch .nav{padding:0 clamp(20px,4vw,64px)}
 .fieldwrap{position:relative;flex:1 1 auto;min-height:0}
 .ib-field{position:absolute;inset:0;overflow:hidden;touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none;background:#fff}
@@ -65,7 +63,7 @@ html.snap{scroll-snap-type:y mandatory}
 @media (max-width:720px){.ib-seg .ib-box{padding:0 8px;font-size:11px}.hide-sm{display:none}.ib-hint{display:none}.ib-bar{gap:8px;padding:14px 12px}.ib-quiet{font-size:10px}.nav{font-size:13px}.nav a{white-space:nowrap}.home-foot{font-size:13px}}
 
 /* about */
-.ab-hero{position:relative;height:100vh;min-height:560px;overflow:hidden;background:#16204A;color:#fff;display:flex;flex-direction:column;justify-content:space-between}
+.ab-hero{position:relative;height:100vh;height:100svh;min-height:560px;overflow:hidden;background:#16204A;color:#fff;display:flex;flex-direction:column;justify-content:space-between}
 .ab-hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .ab-hero .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,16,40,.35) 0%,rgba(10,16,40,0) 22%,rgba(10,16,40,0) 50%,rgba(10,16,40,.6) 100%)}
 .ab-hero .nav,.ab-hero .bio{position:relative;z-index:2}
