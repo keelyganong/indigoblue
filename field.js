@@ -20,7 +20,7 @@
       var b = document.createElement('button');
       b.type = 'button'; b.className = 'ib-tile';
       b.innerHTML = '<span class="ib-in"><img alt="" draggable="false" loading="lazy"></span><span class="ib-label"></span>';
-      (function (idx) { b.addEventListener('click', function () { if (moved) { moved = false; return; } openPiece(b._item); }); })(k);
+      b.addEventListener('click', function (e) { if (moved) { moved = false; return; } openPiece(e.currentTarget._item); });
       field.appendChild(b); tiles.push(b);
     }
     function assign() {
