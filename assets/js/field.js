@@ -68,18 +68,31 @@
       tgt.x += e.deltaX * k / tgt.s;
       if (!inline) tgt.y += e.deltaY * k / tgt.s;
     }, { passive: false });
+    var pts = {}, pinch = null;
+    function pdist() { var k = Object.keys(pts); var a = pts[k[0]], b = pts[k[1]]; return { d: Math.hypot(a.x - b.x, a.y - b.y), x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 }; }
     field.addEventListener('pointerdown', function (e) {
       if (e.button !== undefined && e.button !== 0) return;
+      pts[e.pointerId] = { x: e.clientX, y: e.clientY };
+      if (Object.keys(pts).length === 2) { pinch = pdist(); drag = null; moved = true; touch(); return; }
       moved = false; drag = { x: e.clientX, y: e.clientY, lx: e.clientX, ly: e.clientY, vx: 0, vy: 0 };
     });
     window.addEventListener('pointermove', function (e) {
+      if (pts[e.pointerId]) pts[e.pointerId] = { x: e.clientX, y: e.clientY };
+      if (pinch && Object.keys(pts).length === 2) {
+        var n = pdist(), r = field.getBoundingClientRect();
+        zoomAt(n.x - r.left, n.y - r.top, n.d / Math.max(1, pinch.d));
+        tgt.x -= (n.x - pinch.x) / tgt.s; tgt.y -= (n.y - pinch.y) / tgt.s;
+        pinch = n; return;
+      }
       if (!drag) return;
       var dx = e.clientX - drag.lx, dy = e.clientY - drag.ly;
       if (!moved && Math.hypot(e.clientX - drag.x, e.clientY - drag.y) > 6) { moved = true; field.classList.add('grab'); touch(); }
       if (moved) { tgt.x -= dx / tgt.s; tgt.y -= dy / tgt.s; cam.x = tgt.x; cam.y = tgt.y; drag.vx = dx; drag.vy = dy; }
       drag.lx = e.clientX; drag.ly = e.clientY;
     });
-    function up() {
+    function up(e) {
+      if (e && pts[e.pointerId]) delete pts[e.pointerId];
+      if (Object.keys(pts).length < 2) pinch = null;
       if (!drag) return;
       if (moved && !reduce) { tgt.x -= drag.vx * 14 / tgt.s; tgt.y -= drag.vy * 14 / tgt.s; }
       drag = null; field.classList.remove('grab');

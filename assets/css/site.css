@@ -62,7 +62,7 @@ html.snap{scroll-snap-type:y mandatory}
 .ib-overlay .pv{position:absolute;left:clamp(12px,2vw,28px);top:50%;transform:translateY(-50%)}
 .ib-overlay .nx{position:absolute;right:clamp(12px,2vw,28px);top:50%;transform:translateY(-50%)}
 @keyframes ibIn{from{opacity:0;transform:scale(.985)}to{opacity:1;transform:none}}
-@media (max-width:720px){.ib-seg .ib-box{padding:0 8px;font-size:11px}.hide-sm{display:none}}
+@media (max-width:720px){.ib-seg .ib-box{padding:0 8px;font-size:11px}.hide-sm{display:none}.ib-hint{display:none}.ib-bar{gap:8px;padding:14px 12px}.ib-quiet{font-size:10px}.nav{font-size:13px}.nav a{white-space:nowrap}.home-foot{font-size:13px}}
 
 /* about */
 .ab-hero{position:relative;height:100vh;min-height:560px;overflow:hidden;background:#16204A;color:#fff;display:flex;flex-direction:column;justify-content:space-between}
