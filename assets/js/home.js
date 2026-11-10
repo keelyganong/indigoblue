@@ -34,7 +34,16 @@
   document.querySelectorAll('a[href="#archive"]').forEach(function (a) { if (!a.hasAttribute('data-scroll')) a.addEventListener('click', glide); });
   var topBtn = arch.querySelector('[data-to-top]');
   if (topBtn) topBtn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
-  var atTop = function () { return window.scrollY < 12; };
+  var atTop = function () {
+    var d = document.querySelector('[data-cart-drawer]');
+    if (d && !d.hidden) return false;
+    return window.scrollY < 12;
+  };
+  // Links to a piece (or the cart) skip the intro and land on the pieces
+  if (location.hash && location.hash !== '#top') {
+    try { localStorage.setItem('ib-intro-seen', '1'); } catch (e) {}
+    setTimeout(function () { window.scrollTo(0, endY()); }, 0);
+  }
   window.addEventListener('wheel', function (e) {
     if (gliding) { e.preventDefault(); return; }
     if (atTop() && e.deltaY > 0 && Math.abs(e.deltaY) >= Math.abs(e.deltaX) && !target.contains(e.target)) { e.preventDefault(); glide(); }
