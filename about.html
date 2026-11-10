@@ -14,13 +14,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@800;900&family=Courier+Prime:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=4">
+<link rel="stylesheet" href="assets/css/site.css?v=5">
 </head>
 <body>
 <section class="ab-hero pad" aria-label="About Indigo Blue">
 <video src="assets/video/marin-fog.mp4" poster="assets/video/marin-fog-poster.jpg" autoplay muted loop playsinline aria-hidden="true" data-hero-video></video>
 <div class="shade" aria-hidden="true"></div>
-<nav class="nav" aria-label="Main"><a href="index.html">Indigo Blue</a><a href="archive.html">Archive</a><a href="about.html">About</a></nav>
+<nav class="nav" aria-label="Main"><a href="index.html">Indigo Blue</a><span aria-hidden="true"></span><span class="nav-r"><a href="about.html">About</a><button type="button" class="nav-btn" data-cart-open data-cart-count>Cart (0)</button></span></nav>
 <div class="bio">
 <p>Indigo Blue is the indigo dye and textile design practice by Marin native Keely Ganong.</p>
 <p>Every piece is one of one, inspired by Marin County's open spaces, with a focus on blue hues, collage-like pattern making, and upcycled fabrics.</p>
@@ -45,6 +45,16 @@
 <span>Marin County, California</span>
 <a href="https://www.instagram.com/indigoblue.co/">@indigoblue.co</a>
 </footer>
-<script src="assets/js/about.js?v=4"></script>
+<div class="cart" data-cart-drawer hidden>
+<aside class="cart-panel" role="dialog" aria-label="Cart">
+<div class="cart-head"><span class="sh-lab" style="color:#16204A">Cart</span><button type="button" class="sh-x" data-cart-close aria-label="Close cart"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M1.5 1.5 L12.5 12.5 M12.5 1.5 L1.5 12.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>Close</button></div>
+<div class="cart-list" data-cart-list></div>
+<div class="cart-foot"><div class="cart-sub"><span>Subtotal</span><span data-cart-subtotal>$0</span></div><div data-cart-pay></div></div>
+</aside>
+</div>
+<script src="assets/js/items.js?v=5"></script>
+<script src="assets/js/config.js?v=5"></script>
+<script src="assets/js/cart.js?v=5"></script>
+<script src="assets/js/about.js?v=5"></script>
 </body>
 </html>

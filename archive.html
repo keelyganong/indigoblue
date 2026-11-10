@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Archive | Indigo Blue</title>
+<title>Shop | Indigo Blue</title>
 <meta name="description" content="One of one indigo dyed pieces, hand made in Marin County by Keely Ganong.">
-<meta property="og:title" content="Archive | Indigo Blue">
+<meta property="og:title" content="Shop | Indigo Blue">
 <meta property="og:description" content="One of one indigo dyed pieces, hand made in Marin County by Keely Ganong.">
 <meta property="og:image" content="assets/img/indigo-panels.webp">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -14,26 +14,60 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@800;900&family=Courier+Prime:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=4">
+<link rel="stylesheet" href="assets/css/site.css?v=5">
 </head>
 <body>
 <div class="arch" data-arch>
-<nav class="nav" aria-label="Main"><a href="index.html">Indigo Blue</a><a href="archive.html">Archive</a><a href="about.html">About</a></nav>
+<nav class="nav" aria-label="Main"><a href="index.html">Indigo Blue</a><span aria-hidden="true"></span><span class="nav-r"><a href="about.html">About</a><button type="button" class="nav-btn" data-cart-open data-cart-count>Cart (0)</button></span></nav>
 <div class="fieldwrap">
-<div class="ib-field" role="region" aria-label="Archive. Scroll or drag to explore, pinch to zoom."></div>
-<div class="ib-bar"><a class="ib-quiet" href="index.html">Home</a><div class="ib-seg" role="group" aria-label="Filter by technique"><button type="button" class="ib-box on" data-filter="All" aria-pressed="true">All</button><button type="button" class="ib-box" data-filter="Block print" aria-pressed="false">Block print</button><button type="button" class="ib-box" data-filter="Shibori" aria-pressed="false">Shibori</button><button type="button" class="ib-box" data-filter="Patchwork" aria-pressed="false">Patchwork</button></div><span class="ib-quiet hide-sm" style="cursor:default">Indigo Blue Archive</span></div>
+<div class="ib-field" role="region" aria-label="Pieces. Scroll or drag to explore, pinch to zoom."></div>
+<div class="ib-bar"><a class="ib-quiet" href="index.html">Home</a><div class="ib-seg" role="group" aria-label="Filter by technique"><button type="button" class="ib-box on" data-filter="All" aria-pressed="true">All</button><button type="button" class="ib-box" data-filter="Block print" aria-pressed="false">Block print</button><button type="button" class="ib-box" data-filter="Shibori" aria-pressed="false">Shibori</button><button type="button" class="ib-box" data-filter="Patchwork" aria-pressed="false">Patchwork</button></div><button type="button" class="ib-chk" role="checkbox" aria-checked="false" data-avail><span class="bx"><svg viewBox="0 0 12 10" aria-hidden="true"><path d="M1 5.2 L4.4 8.4 L11 1.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Available only</button></div>
 <div class="ib-hint" aria-hidden="true"><span>Pinch to zoom</span><span>Tap to see the piece</span></div>
 <div class="ib-zoom" role="group" aria-label="Zoom"><button type="button" class="ib-box ib-sq" aria-label="Zoom out" data-zoom-out>−</button><button type="button" class="ib-box ib-sq" aria-label="Zoom in" data-zoom-in>+</button></div>
-<div class="ib-overlay" role="dialog" aria-label="Piece" hidden>
-<button type="button" class="ib-quiet x">Close</button>
-<button type="button" class="ib-quiet pv" aria-label="Previous piece"><svg viewBox="0 0 13 10" aria-hidden="true" style="width:1.1em;height:.85em"><path d="M12 5 L1 5 M4.8 1.2 L1 5 L4.8 8.8" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg></button>
-<button type="button" class="ib-quiet nx" aria-label="Next piece"><svg viewBox="0 0 13 10" aria-hidden="true" style="width:1.1em;height:.85em"><path d="M1 5 L12 5 M8.2 1.2 L12 5 L8.2 8.8" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg></button>
-<img alt=""><p></p>
+<div class="ib-overlay pv" role="dialog" aria-label="Piece" data-piece hidden>
+<button type="button" class="sh-x" data-close aria-label="Close"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M1.5 1.5 L12.5 12.5 M12.5 1.5 L1.5 12.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>Close</button>
+<button type="button" class="sh-arrow l" aria-label="Previous piece" data-prev><svg viewBox="0 0 16 12" aria-hidden="true"><path d="M15 6 L1 6 M5.6 1.4 L1 6 L5.6 10.6" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<div class="pv-img"><img alt="" data-pv-img></div>
+<div class="pv-info">
+<div style="display:flex;flex-direction:column;gap:8px"><span class="sh-status" data-pv-status></span><h2 data-pv-title></h2><p class="pv-price" data-pv-price></p></div>
+<dl data-pv-details></dl>
+<div class="pv-cta" data-pv-cta></div>
+</div>
+<button type="button" class="sh-arrow r" aria-label="Next piece" data-next><svg viewBox="0 0 16 12" aria-hidden="true"><path d="M1 6 L15 6 M10.4 1.4 L15 6 L10.4 10.6" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+</div>
+<div class="sh-modal" role="dialog" aria-label="Commission a piece" data-cm hidden>
+<div class="sh-card">
+<button type="button" class="sh-x" data-cm-close aria-label="Close"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M1.5 1.5 L12.5 12.5 M12.5 1.5 L1.5 12.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>Close</button>
+<div class="cm-ref"><img alt="" data-cm-img><div style="display:flex;flex-direction:column;gap:4px"><span class="sh-lab">Commission a piece</span><span style="font-size:14px;text-transform:uppercase;letter-spacing:.04em" data-cm-title></span></div></div>
+<div data-cm-form style="display:flex;flex-direction:column;gap:20px">
+<div class="cm-field"><label class="sh-lab" for="cm-msg">Your request</label><p id="cm-help" style="margin:0;font-size:13px;line-height:1.5;color:#4F5878">Tell me what you'd like. I'll do my best to make it work.</p><textarea id="cm-msg" class="sh-in" rows="5" aria-describedby="cm-help" placeholder="For example: I like the topo print and the deep blue. I'd want it on a long sleeve, with a patch on the back." style="resize:vertical;line-height:1.5"></textarea></div>
+<div class="cm-field"><span class="sh-lab">Article</span><div class="sh-pick" role="group" aria-label="Article" style="grid-template-columns:repeat(4,minmax(0,1fr))"><button type="button" class="ib-box" data-cm-type="Tee" aria-pressed="false">Tee</button><button type="button" class="ib-box" data-cm-type="Tank" aria-pressed="false">Tank</button><button type="button" class="ib-box" data-cm-type="Long sleeve" aria-pressed="false">Long sleeve</button><button type="button" class="ib-box" data-cm-type="Other" aria-pressed="false">Other</button></div></div>
+<div class="cm-field"><span class="sh-lab">Size</span><div class="sh-pick" role="group" aria-label="Size" style="grid-template-columns:repeat(5,minmax(0,1fr))"><button type="button" class="ib-box" data-cm-size="XS" aria-pressed="false">XS</button><button type="button" class="ib-box" data-cm-size="S" aria-pressed="false">S</button><button type="button" class="ib-box" data-cm-size="M" aria-pressed="false">M</button><button type="button" class="ib-box" data-cm-size="L" aria-pressed="false">L</button><button type="button" class="ib-box" data-cm-size="XL" aria-pressed="false">XL</button></div></div>
+<div class="cm-field"><label class="sh-lab" for="cm-email">Email</label><input id="cm-email" class="sh-in" type="email" autocomplete="email"></div>
+<p class="cm-next">I'll reply with a plan, price, and timeline. Nothing is made or charged until you approve.</p>
+<button type="button" class="sh-btn" data-cm-send disabled>Send request</button>
+<p class="cm-err" role="status" aria-live="polite" data-cm-err></p>
+</div>
+<div data-cm-sent hidden style="display:flex;flex-direction:column;gap:16px">
+<p style="margin:0;font-size:18px;text-transform:uppercase;letter-spacing:.04em">Request sent</p>
+<p style="margin:0;font-size:15px;line-height:1.6">Thank you. I'll be in touch at <span data-cm-email-shown></span> soon.</p>
+<button type="button" class="sh-btn o" data-cm-close>Done</button>
 </div>
 </div>
 </div>
-<script src="assets/js/items.js?v=4"></script>
-<script src="assets/js/field.js?v=4"></script>
+</div>
+</div>
+<div class="cart" data-cart-drawer hidden>
+<aside class="cart-panel" role="dialog" aria-label="Cart">
+<div class="cart-head"><span class="sh-lab" style="color:#16204A">Cart</span><button type="button" class="sh-x" data-cart-close aria-label="Close cart"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M1.5 1.5 L12.5 12.5 M12.5 1.5 L1.5 12.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>Close</button></div>
+<div class="cart-list" data-cart-list></div>
+<div class="cart-foot"><div class="cart-sub"><span>Subtotal</span><span data-cart-subtotal>$0</span></div><div data-cart-pay></div></div>
+</aside>
+</div>
+<script src="assets/js/items.js?v=5"></script>
+<script src="assets/js/config.js?v=5"></script>
+<script src="assets/js/cart.js?v=5"></script>
+<script src="assets/js/field.js?v=5"></script>
 <script>IBField.init(document.querySelector('[data-arch]'), { embedded: false });</script>
 </body>
 </html>
